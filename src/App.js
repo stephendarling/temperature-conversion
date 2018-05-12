@@ -1,13 +1,12 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
 import './App.css';
 import { 
   Container,
   Header,
   Input,
   Select,
-  Button,
-  Form
+  Form,
+  Message
 } from 'semantic-ui-react'
 
 // Creates array of options for drop-down values
@@ -23,24 +22,46 @@ class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      startingValue: '',
-      startingUnit: '',
-      convertedValue: '',
-      convertedUnit: '',
-      isSuccess: ''
+      startingValue: null,
+      startingUnit: null,
+      convertedValue: null,
+      convertedUnit: null,
+      responseColor: 'yellow',
+      response: 'Invalid'
     };
-
     // Allows access to state through class with this.state
     this.handleInput = this.handleInput.bind(this);
     this.checkSuccess = this.checkSuccess.bind(this)
   }
-
+  // Runs the function performConversion and returns correct, incorrect or invalid
   checkSuccess() {
-    if(this.state.startingUnit === 'k') {
-      console.log('Success')
+    let newState = {}
+    let response = this.performConversion(this.state.startingValue, this.state.startingUnit, this.state.convertedValue, this.state.convertedUnit) 
+    if (response === 'correct') {
+      newState['response'] = 'Correct'
+      newState['responseColor'] = 'green'
+      this.setState(newState)
+    }
+    else if (response === 'incorrect') {
+      newState['response'] = 'Incorrect'
+      newState['responseColor'] = 'red'
+      this.setState(newState)
     } 
+    else if (response === 'invalid') {
+      newState['response'] = 'Invalid'
+      newState['responseColor'] = 'yellow'
+      this.setState(newState)
+    }
+  }
+  // Takes the four input values and determines if the user's conversion is correct, incorrect 
+  // or invalid
+  performConversion(sv, su, cv, cu) {
+    // Returns invalid unless all four variables are passed and not null
+    if (sv && su && cv && cu) {
+      return 'correct'
+    }
     else {
-      console.log('Failure')
+      return 'invalid'
     }
   }
 
@@ -75,9 +96,9 @@ class App extends Component {
           <Form.Field control={Select} onChange={this.handleSelect.bind(this)} name="convertedUnit" label='Converted Unit' options={options} placeholder='Unit' />
         </Form.Group>
       </Form>
-      <p>
-        {this.state.isSuccess}
-      </p>
+      <Message color={this.state.responseColor}>
+        <Message.Header className="App">{this.state.response}</Message.Header>
+      </Message>
     </Container>
     );
   }
