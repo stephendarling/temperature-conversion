@@ -140,7 +140,8 @@ class App extends Component {
     return fahrenheit
   }
   rankineToKelvin(value) {
-
+    let kelvin = (Number(value) * 5/9).toFixed(1)
+    return kelvin
   }
   fahrenheitToCelcius(value) {
     let celcius = ((Number(value) - 32) * 5/9).toFixed(1)
