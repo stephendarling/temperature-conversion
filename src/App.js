@@ -63,12 +63,12 @@ class App extends Component {
       {/* Input form */}
       <Form>
         <Form.Group widths='equal'>
-          <Form.Field control={Input} onChange={this.handleInput.bind(this)} name="startingValue" label='Starting Temperature' placeholder='Enter Temperature' />
-          <Form.Field control={Select} onChange={this.handleSelect.bind(this)} name="startingUnit" label='Starting Unit' options={options} placeholder='Unit' />
+          <Form.Field control={Input} onChange={this.handleInput.bind(this)} name="startingValue" label='Input Temperature' placeholder='Enter Temperature' />
+          <Form.Field control={Select} onChange={this.handleSelect.bind(this)} name="startingUnit" label='Input Unit' options={options} placeholder='Unit' />
         </Form.Group>
         <Form.Group widths='equal'>
-          <Form.Field control={Input} onChange={this.handleInput.bind(this)} name="convertedValue" label='Converted Temperature' placeholder='Enter Temperature' />
-          <Form.Field control={Select} onChange={this.handleSelect.bind(this)} name="convertedUnit" label='Converted Unit' options={options} placeholder='Unit' />
+          <Form.Field control={Select} onChange={this.handleSelect.bind(this)} name="convertedUnit" label='Target Unit' options={options} placeholder='Unit' />
+          <Form.Field control={Input} onChange={this.handleInput.bind(this)} name="convertedValue" label='Student Response' placeholder='Enter Temperature' />
         </Form.Group>
       </Form>
       {/* Renders the response message telling the user if the inputs are correct, incorrect or invalid
