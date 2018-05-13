@@ -31,26 +31,6 @@ class App extends Component {
     this.handleInput = this.handleInput.bind(this);
     this.checkSuccess = this.checkSuccess.bind(this)
   }
-  // Runs the function performConversion and returns correct, incorrect or invalid
-  checkSuccess() {
-    let newState = {}
-    let response = performConversion(this.state.startingValue, this.state.startingUnit, this.state.convertedValue, this.state.convertedUnit) 
-    if (response.status === 'correct') {
-      newState['response'] = 'correct'
-      newState['calculation'] = response.calculation
-      this.setState(newState)
-    }
-    else if (response.status === 'incorrect') {
-      newState['response'] = 'incorrect'
-      newState['calculation'] = response.calculation
-      this.setState(newState)
-    } 
-    else if (response.status === 'invalid') {
-      newState['response'] = 'invalid'
-      newState['calculation'] = response.calculation
-      this.setState(newState)
-    }
-  }
   // Updates state with INPUT value and runs checkSuccess for function after state is updated
   async handleInput(event) {
     let change = {}
@@ -66,9 +46,17 @@ class App extends Component {
     await this.setState(change)
     this.checkSuccess()
   }
+  // Runs the function performConversion and returns correct, incorrect or invalid
+  checkSuccess() {
+    let newState = {}
+    let response = performConversion(this.state.startingValue, this.state.startingUnit, this.state.convertedValue, this.state.convertedUnit) 
+    newState['response'] = response.status
+    newState['calculation'] = response.calculation
+    // Updates state with response from conversion and correct calculation
+    this.setState(newState)
+  }
 
   render() {
-    console.log('options',options)
     return (
     <Container text className="body">
       <Header as='h2'>Temperature Conversion Grading Tool</Header>
