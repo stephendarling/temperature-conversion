@@ -5,9 +5,9 @@ import {
   Header,
   Input,
   Select,
-  Form,
-  Message
+  Form
 } from 'semantic-ui-react'
+import ResponseMessage from './components/ResponseMessage'
 
 // Creates array of options for drop-down values
 const options = [
@@ -44,7 +44,7 @@ class App extends Component {
     }
     else if (response === 'incorrect') {
       newState['response'] = 'Incorrect'
-      newState['responseColor'] = 'red'
+      newState['responseColor'] = 'red',
       this.setState(newState)
     } 
     else if (response === 'invalid') {
@@ -199,10 +199,12 @@ class App extends Component {
           <Form.Field control={Select} onChange={this.handleSelect.bind(this)} name="convertedUnit" label='Converted Unit' options={options} placeholder='Unit' />
         </Form.Group>
       </Form>
-      {/* Renders the response telling the user if the inputs are correct, incorrect or invalid */}
-      <Message color={this.state.responseColor}>
-        <Message.Header className="App">{this.state.response}</Message.Header>
-      </Message>
+      {/* Renders the response message telling the user if the inputs are correct, incorrect or invalid
+          State is passed to the ResponseMessage component as props */}
+      <ResponseMessage 
+        icon='inbox'
+        color={this.state.responseColor}
+        header={this.state.response} />
     </Container>
     );
   }
