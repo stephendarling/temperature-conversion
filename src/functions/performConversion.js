@@ -15,55 +15,43 @@ function performConversion(sv, su, cv, cu) {
     else {
       // Celsius conversions
       if (su === 'c' && cu === 'r') {
-        calculation = conversion.celsiusToRankine(sv)
-        if (Number(cv).toFixed(1) === calculation) { return { status: 'correct', calculation} } else { return { status: 'incorrect', calculation } }
+        return conversion.celsiusToRankine(sv,cv)
       }
       else if (su === 'c' && cu === 'f') {
-        calculation = conversion.celsiusToFahrenheit(sv)
-        if (Number(cv).toFixed(1) === calculation) { return { status: 'correct', calculation} } else { return { status: 'incorrect', calculation } }
+        return conversion.celsiusToFahrenheit(sv)
       }
       else if (su === 'c' && cu === 'k') {
-        calculation = conversion.celsiusToKelvin(sv)
-        if (Number(cv).toFixed(1) === calculation) { return { status: 'correct', calculation} } else { return { status: 'incorrect', calculation } }
+        return conversion.celsiusToKelvin(sv)
       }
       // Rankine conversions
       else if (su === 'r' && cu === 'c') {
-        calculation = conversion.rankineToCelsius(sv)
-        if (Number(cv).toFixed === calculation) { return { status: 'correct', calculation} } else { return { status: 'incorrect', calculation } }
+        return conversion.rankineToCelsius(sv)
       }
       else if (su === 'r' && cu === 'f') {
-        calculation = conversion.rankineToFahrenheit(sv)
-        if (Number(cv).toFixed(1) === calculation) { return { status: 'correct', calculation} } else { return { status: 'incorrect', calculation } }
+        return conversion.rankineToFahrenheit(sv)
       }
       else if (su === 'r' && cu === 'k') {
-        calculation = conversion.rankineToKelvin(sv)
-        if (Number(cv).toFixed(1) === calculation) { return { status: 'correct', calculation} } else { return { status: 'incorrect', calculation } }
+        return conversion.rankineToKelvin(sv)
       }
       // Fahrenheit conversions
       else if (su === 'f' && cu === 'c') {
-        calculation = conversion.fahrenheitToCelsius(sv)
-        if (Number(cv).toFixed(1) === calculation) { return { status: 'correct', calculation} } else { return { status: 'incorrect', calculation } }
+        return conversion.fahrenheitToCelsius(sv)
       }
       else if (su === 'f' && cu === 'k') {
-        calculation = conversion.fahrenheitToKelvin(sv)
-        if (Number(cv).toFixed(1) === calculation) { return { status: 'correct', calculation} } else { return { status: 'incorrect', calculation } }
+        return conversion.fahrenheitToKelvin(sv)
       }
       else if (su === 'f' && cu === 'r') {
-        calculation = conversion.fahrenheitToRankine(sv)
-        if (Number(cv).toFixed(1) === calculation) { return { status: 'correct', calculation} } else { return { status: 'incorrect', calculation } }
+        return conversion.fahrenheitToRankine(sv)
       }
       // Kelvin conversions
       else if (su === 'k' && cu === 'c') {
-        calculation = conversion.kelvinToCelsius(sv)
-        if (Number(cv).toFixed(1) === calculation) { return { status: 'correct', calculation} } else { return { status: 'incorrect', calculation } }
+        return conversion.kelvinToCelsius(sv)
       }
       else if (su === 'k' && cu === 'f') {
-        calculation = conversion.kelvinToFahrenheit(sv)
-        if (Number(cv).toFixed(1) === calculation) { return { status: 'correct', calculation} } else { return { status: 'incorrect', calculation } }
+        return conversion.kelvinToFahrenheit(sv)
       }
       else if (su === 'k' && cu === 'r') {
-        calculation = conversion.kelvinToRankine(sv)
-        if (Number(cv).toFixed(1) === calculation) { return { status: 'correct', calculation} } else { return { status: 'incorrect', calculation } }
+        return conversion.kelvinToRankine(sv)
       }
     }
   }
