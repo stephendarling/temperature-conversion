@@ -1,23 +1,37 @@
 import React from 'react';
-import { 
-  Header,
-  Message
-} from 'semantic-ui-react'
+import { Message } from 'semantic-ui-react'
+import * as utilities from '../functions/utilities'
 
 class ResponseMessage extends React.Component {
+  // Sets local state to props
+  constructor(props) {
+    super(props);
+    this.state = this.props;
+  }
+  // Updates local state when new props are recieved which forces a re-render
+  componentWillReceiveProps(nextProps){
+    this.setState(nextProps)
+  }
   render() {
-    let color = this.props.color
-    let header = this.props.header
+    // Sets local variables from state
+    let response = this.state.response
+    let header = utilities.capitalizeFirstLetter(response)
+    let calculation = this.state.calculation
     let content = ''
     let icon = ''
-    if (color === 'red') {
-      content = `This conversion is incorrect. The expected Converted Temperature is ${this.props.color}`
+    let color = ''
+    // Determines the icon and content variables depending on the local variable color
+    if (response === 'incorrect') {
+      color = 'red'
+      content = `This conversion is incorrect. The expected converted temperature is ${calculation}`
       icon = 'remove'
-    } else if (color === 'green' ) {
+    } else if (response === 'correct' ) {
+      color = 'green'
       content = 'The temperature was converted correctly.'
       icon = 'checkmark'
     } else {
-      content = 'Enter a value for all four fields and make sure that Starting Unit and Converted Unit are not the same.'
+      color = 'yellow'
+      content = 'Enter a value for all four fields and make sure that Starting Unit and Converted Unit are not the same'
       icon = 'warning sign'
     }
     return (
