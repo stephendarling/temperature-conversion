@@ -5,8 +5,8 @@ import {
   Container,
   Header,
   Input,
-  Select,
-  Form
+  Form,
+  Dropdown
 } from 'semantic-ui-react'
 // Imports response message component
 import ResponseMessage from './components/ResponseMessage'
@@ -66,10 +66,10 @@ class App extends Component {
       <Form>
         <Form.Group widths='equal'>
           <Form.Field control={Input} onChange={this.handleInput.bind(this)} name="startingValue" label='Input Temperature' placeholder='Enter Temperature' />
-          <Form.Field control={Select} onChange={this.handleSelect.bind(this)} name="startingUnit" label='Input Unit' options={options} placeholder='Unit' />
+          <Form.Field control={Dropdown} search selection onChange={this.handleSelect.bind(this)} name="startingUnit" label='Input Unit' options={options} placeholder='Unit' />
         </Form.Group>
         <Form.Group widths='equal'>
-          <Form.Field control={Select} onChange={this.handleSelect.bind(this)} name="convertedUnit" label='Target Unit' options={options} placeholder='Unit' />
+          <Form.Field control={Dropdown} search selection onChange={this.handleSelect.bind(this)} name="convertedUnit" label='Target Unit' options={options} placeholder='Unit' />
           <Form.Field control={Input} onChange={this.handleInput.bind(this)} name="convertedValue" label='Student Response' placeholder='Enter Temperature' />
         </Form.Group>
       </Form>
