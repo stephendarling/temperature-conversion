@@ -31,7 +31,7 @@ class ResponseMessage extends React.Component {
       icon = 'checkmark'
     } else {
       color = 'yellow'
-      content = 'Enter a value for all four fields. Note that the Starting Unit and Converted Unit can not be the same.'
+      content = 'All fields are required. Note that the Input Unit and Target Unit cannot be the same and the Input Temperature must be valid.'
       icon = 'warning sign'
     }
     return (

@@ -8,6 +8,10 @@ function performConversion(startingValue, startingUnit, convertedValue, converte
     if (startingUnit === convertedUnit) {
       return { status: 'invalid', calculation: null }
     }
+    // Checks if the startingValue contains any letters
+    else if (/[a-z]/i.test(startingValue)) {
+      return { status: 'invalid', calculation: null }
+    }
     // For each of the 12 possible converstions the function returns either correct or incorrect based
     // on whether the user's input matches the calculated function output. Uses the value method of the 
     // option to determine starting and target unit (e.g. c = celsius, r = rankine, etc.)
