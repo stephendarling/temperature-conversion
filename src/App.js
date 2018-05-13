@@ -40,7 +40,6 @@ class App extends Component {
   }
   // Updates state with SELECT value and runs checkSuccess for function after state is updated
   async handleSelect(event, data) {
-    console.log('changing',data.value, data.name)
     let change = {}
     change[data.name] = data.value
     await this.setState(change)

@@ -2,11 +2,10 @@
 import * as conversion from './temperatureConversion'
 // Takes the four input values and determines if the user's conversion is correct, incorrect 
 // or invalid
-function performConversion(sv, su, cv, cu) {
-  let calculation = ''
+function performConversion(startingValue, startingUnit, convertedValue, convertedUnit) {
   // Returns invalid unless all four variables are passed and not null
-  if (sv && su && cv && cu) {
-    if (su === cu) {
+  if (startingValue && startingUnit && convertedValue && convertedUnit) {
+    if (startingUnit === convertedUnit) {
       return { status: 'invalid', calculation: null }
     }
     // For each of the 12 possible converstions the function returns either correct or incorrect based
@@ -14,44 +13,44 @@ function performConversion(sv, su, cv, cu) {
     // option to determine starting and target unit (e.g. c = celsius, r = rankine, etc.)
     else {
       // Celsius conversions
-      if (su === 'c' && cu === 'r') {
-        return conversion.celsiusToRankine(sv,cv)
+      if (startingUnit === 'c' && convertedUnit === 'r') {
+        return conversion.celsiusToRankine(startingValue,convertedValue)
       }
-      else if (su === 'c' && cu === 'f') {
-        return conversion.celsiusToFahrenheit(sv)
+      else if (startingUnit === 'c' && convertedUnit === 'f') {
+        return conversion.celsiusToFahrenheit(startingValue,convertedValue)
       }
-      else if (su === 'c' && cu === 'k') {
-        return conversion.celsiusToKelvin(sv)
+      else if (startingUnit === 'c' && convertedUnit === 'k') {
+        return conversion.celsiusToKelvin(startingValue,convertedValue)
       }
       // Rankine conversions
-      else if (su === 'r' && cu === 'c') {
-        return conversion.rankineToCelsius(sv)
+      else if (startingUnit === 'r' && convertedUnit === 'c') {
+        return conversion.rankineToCelsius(startingValue,convertedValue)
       }
-      else if (su === 'r' && cu === 'f') {
-        return conversion.rankineToFahrenheit(sv)
+      else if (startingUnit === 'r' && convertedUnit === 'f') {
+        return conversion.rankineToFahrenheit(startingValue,convertedValue)
       }
-      else if (su === 'r' && cu === 'k') {
-        return conversion.rankineToKelvin(sv)
+      else if (startingUnit === 'r' && convertedUnit === 'k') {
+        return conversion.rankineToKelvin(startingValue,convertedValue)
       }
       // Fahrenheit conversions
-      else if (su === 'f' && cu === 'c') {
-        return conversion.fahrenheitToCelsius(sv)
+      else if (startingUnit === 'f' && convertedUnit === 'c') {
+        return conversion.fahrenheitToCelsius(startingValue,convertedValue)
       }
-      else if (su === 'f' && cu === 'k') {
-        return conversion.fahrenheitToKelvin(sv)
+      else if (startingUnit === 'f' && convertedUnit === 'k') {
+        return conversion.fahrenheitToKelvin(startingValue,convertedValue)
       }
-      else if (su === 'f' && cu === 'r') {
-        return conversion.fahrenheitToRankine(sv)
+      else if (startingUnit === 'f' && convertedUnit === 'r') {
+        return conversion.fahrenheitToRankine(startingValue,convertedValue)
       }
       // Kelvin conversions
-      else if (su === 'k' && cu === 'c') {
-        return conversion.kelvinToCelsius(sv)
+      else if (startingUnit === 'k' && convertedUnit === 'c') {
+        return conversion.kelvinToCelsius(startingValue,convertedValue)
       }
-      else if (su === 'k' && cu === 'f') {
-        return conversion.kelvinToFahrenheit(sv)
+      else if (startingUnit === 'k' && convertedUnit === 'f') {
+        return conversion.kelvinToFahrenheit(startingValue,convertedValue)
       }
-      else if (su === 'k' && cu === 'r') {
-        return conversion.kelvinToRankine(sv)
+      else if (startingUnit === 'k' && convertedUnit === 'r') {
+        return conversion.kelvinToRankine(startingValue,convertedValue)
       }
     }
   }
