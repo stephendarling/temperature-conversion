@@ -23,7 +23,7 @@ class ResponseMessage extends React.Component {
     // Determines the icon and content variables depending on the local variable color
     if (response === 'incorrect') {
       color = 'red'
-      content = `This conversion is incorrect. The expected converted temperature is ${calculation}`
+      content = `This conversion is incorrect. The expected converted temperature is ${calculation}.`
       icon = 'remove'
     } else if (response === 'correct' ) {
       color = 'green'
@@ -31,7 +31,7 @@ class ResponseMessage extends React.Component {
       icon = 'checkmark'
     } else {
       color = 'yellow'
-      content = 'Enter a value for all four fields and make sure that Starting Unit and Converted Unit are not the same'
+      content = 'Enter a value for all four fields. Note that the Starting Unit and Converted Unit can not be the same.'
       icon = 'warning sign'
     }
     return (
