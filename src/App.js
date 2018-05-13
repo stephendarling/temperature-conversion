@@ -56,10 +56,12 @@ class App extends Component {
   }
 
   render() {
+    let headerText = "Temperature Conversion Grading Tool"
+    let bodyText = "Use the below inputs to verify if a student\'s conversion is correct"
     return (
     <Container text className="body">
-      <Header as='h2'>Temperature Conversion Grading Tool</Header>
-      <p>Use the below inputs to verify if a student's conversion is correct</p>
+      <Header as='h2'>{headerText}</Header>
+      <p>{bodyText}</p>
       {/* Input form */}
       <Form>
         <Form.Group widths='equal'>
