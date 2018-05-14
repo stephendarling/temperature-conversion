@@ -29,7 +29,7 @@ $ npm start
 A browser window will open by default to localhost:3000. While running the application any saved changes to the project code will live-reload without the need to restart the running server. 
 
 ### Test
-The following command will run all testing using [Jest](https://facebook.github.io/jest/docs/en/tutorial-react.html):
+The following command will run all tests using [Jest](https://facebook.github.io/jest/docs/en/tutorial-react.html):
 ```sh
 $ npm test 
 ```
@@ -47,7 +47,7 @@ Because the application is pure client-side it can be deployed to any platform c
 
 Alternatively you can deploy to Amazon S3 if you have an active AWS account and like saving money/resources/time:
 1. Login to the AWS Console and open the S3 Resources Landing Page
-2. Create an S3 Bucket with public permissions. See [this article](https://docs.aws.amazon.com/AmazonS3/latest/dev/WebsiteHosting.html) for more detailed configuration information on required bucket security policies and configuration. 
+2. Create an S3 Bucket with public permissions. See [this article](https://docs.aws.amazon.com/AmazonS3/latest/dev/WebsiteHosting.html) for more detailed information on required bucket security policies and configuration. 
 3. Install the [AWS CLI](https://docs.aws.amazon.com/cli/latest/userguide/installing.html)
 4. Open ./package.json and update the following section with your bucket name
 ```sh
