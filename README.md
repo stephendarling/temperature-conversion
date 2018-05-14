@@ -1,5 +1,6 @@
 # Temperature Conversion Grading Tool
 [![Build Status](https://travis-ci.org/stephendarling/temperature-conversion.svg?branch=master)](https://travis-ci.org/stephendarling/temperature-conversion)
+
 This projects allows a user (e.g. a teacher) to check if a heat/temperature conversion is correct (e.g. from a student exam). Conversion between any of the below units are supported:
 - Celsius
 - Kelvin
@@ -62,7 +63,7 @@ $ npm run deploy
 ```
 
 ### CI/CD
-This project uses Travis-CI for continuous integration and continous development. The current build status can be seen at the top of this page. The basic pipeline workflow is outlined below:
+This project uses Travis-CI for continuous integration and continous deployment. The current build status can be seen at the top of this page. The basic pipeline workflow is outlined below:
 1. Travis monitors this repository for new pull requests
 2. Once a pull request has been accepted Travis runs all unit tests and builds the application using the PR branch
 3. If all tests and build are successful the PR is marked as "Ready to merge"
