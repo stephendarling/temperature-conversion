@@ -6,7 +6,8 @@ import {
   Header,
   Input,
   Form,
-  Dropdown
+  Dropdown,
+  List
 } from 'semantic-ui-react'
 // Imports response message component
 import ResponseMessage from './components/ResponseMessage'
@@ -20,11 +21,11 @@ class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      startingValue: null,
-      startingUnit: null,
-      convertedValue: null,
-      convertedUnit: null,
-      response: 'invalid',
+      startingValue: '',
+      startingUnit: '',
+      convertedValue: '',
+      convertedUnit: '',
+      response: '',
       calculation: ''
     };
     // Allows access to state in class using this.state
@@ -48,16 +49,21 @@ class App extends Component {
   // Runs the function performConversion and returns correct, incorrect or invalid
   checkSuccess() {
     let newState = {}
-    let response = performConversion(this.state.startingValue, this.state.startingUnit, this.state.convertedValue, this.state.convertedUnit) 
-    newState['response'] = response.status
-    newState['calculation'] = response.calculation
-    // Updates state with response from conversion and correct calculation
-    this.setState(newState)
+    if (this.state.startingValue.length < 1 && this.state.startingUnit.length < 1 && this.state.convertedValue.length < 1 && this.state.convertedUnit.length < 1) {
+      newState['response'] = ''
+      this.setState(newState)
+    } else {
+      let response = performConversion(this.state.startingValue, this.state.startingUnit, this.state.convertedValue, this.state.convertedUnit) 
+      newState['response'] = response.status
+      newState['calculation'] = response.calculation
+      // Updates state with response from conversion and correct calculation
+      this.setState(newState)
+    }
   }
 
   render() {
     let headerText = "Temperature Conversion Grading Tool"
-    let bodyText = "Use the below inputs to verify if a student's conversion is correct"
+    let bodyText = "Enter values below to verify if a student's conversion is correct"
     return (
     <Container text className="body">
       <Header as='h2'>{headerText}</Header>
@@ -65,12 +71,12 @@ class App extends Component {
       {/* Input form */}
       <Form>
         <Form.Group widths='equal'>
-          <Form.Field control={Input} onChange={this.handleInput.bind(this)} name="startingValue" label='Input Temperature' placeholder='Enter Temperature' />
+          <Form.Field control={Input} onChange={this.handleInput.bind(this)} name="startingValue" label='Input Temperature' placeholder='Heat/Temperature' />
           <Form.Field control={Dropdown} search selection onChange={this.handleSelect.bind(this)} name="startingUnit" label='Input Unit' options={options} placeholder='Unit' />
         </Form.Group>
         <Form.Group widths='equal'>
           <Form.Field control={Dropdown} search selection onChange={this.handleSelect.bind(this)} name="convertedUnit" label='Target Unit' options={options} placeholder='Unit' />
-          <Form.Field control={Input} onChange={this.handleInput.bind(this)} name="convertedValue" label='Student Response' placeholder='Enter Temperature' />
+          <Form.Field control={Input} onChange={this.handleInput.bind(this)} name="convertedValue" label='Student Response' placeholder='Heat/Temperature' />
         </Form.Group>
       </Form>
       {/* Renders the response message telling the user if the inputs are correct, incorrect or invalid
@@ -79,6 +85,12 @@ class App extends Component {
         calculation={this.state.calculation}
         response={this.state.response} 
         />
+      <Header as='h3'>Form requirements</Header>
+      <List bulleted>
+        <List.Item>All four fields are required</List.Item>
+        <List.Item><b>Input Temperature</b> must be numeric</List.Item>
+        <List.Item><b>Input Unit</b> and <b>Target Unit</b> cannot be the same</List.Item>
+      </List>
     </Container>
     );
   }
