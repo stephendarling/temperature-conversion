@@ -20,6 +20,7 @@ class ResponseMessage extends React.Component {
     let content = ''
     let icon = ''
     let color = ''
+
     // Determines the icon and content variables depending on the local variable color
     if (response === 'incorrect') {
       color = 'red'
@@ -31,16 +32,20 @@ class ResponseMessage extends React.Component {
       icon = 'checkmark'
     } else {
       color = 'yellow'
-      content = 'All fields are required. Note that the Input Unit and Target Unit cannot be the same and the Input Temperature must be valid.'
+      content = 'Please see form requirements below.'
       icon = 'warning sign'
     }
     return (
-      <Message
-        icon={icon}
-        color={color}
-        header={header}
-        content={content}
-      />
+      <div>
+      {response !== '' &&
+        <Message
+          icon={icon}
+          color={color}
+          header={header}
+          content={content}
+        />
+      }
+      </div>
     );
   }
 }
