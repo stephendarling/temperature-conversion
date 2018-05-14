@@ -32,7 +32,7 @@ The following command will run all testing using [Jest](https://facebook.github.
 ```sh
 $ npm test 
 ```
-The test files are denoted in the project with <filename>.test.js. 
+The test files are denoted in the project with _FILENAME_.test.js. 
 
 ### Build
 Create React App has a built-in build script:
