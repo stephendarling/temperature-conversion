@@ -7,12 +7,14 @@ node_js:
   - "stable"
 python:
   - "3.5"
+cache:
+  - pip
+  - yarn
 install:
   # awscli is required to create CloudFront invalidation rule 
   - pip install --user awscli
-cache:
-  directories:
-    - node_modules
+before_script:
+  - yarn
 script:
   - npm test
   - npm run build
