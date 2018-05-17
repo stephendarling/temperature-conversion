@@ -1,8 +1,17 @@
-## The configuration below configured Travis to run for CI/CD
+# The configuration below configured Travis to run for CI/CD
+# Sudo required for install awscli and python
+sudo: required
+dist: trusty
 language: node_js
 node_js:
   - "stable"
+python:
+  - "3.5"
+install:
+  # awscli is required to create CloudFront invalidation rule 
+  - pip install awscli
 cache:
+  - pip
   directories:
     - node_modules
 script:
@@ -15,3 +24,6 @@ deploy:
   bucket: $AWS_S3_BUCKET_NAME
   skip_cleanup: true
   local_dir: build
+after_deploy:
+  - aws configure set preview.cloudfront true
+  - aws cloudfront create-invalidation --distribution-id $CLOUDFRONT_DISTRIBUTION_ID --paths "/*"
