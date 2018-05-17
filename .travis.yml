@@ -14,7 +14,6 @@ install:
   # awscli is required to create CloudFront invalidation rule 
   - pip install --user awscli
 before_script:
-  - npm install
   - yarn
 script:
   - npm test
