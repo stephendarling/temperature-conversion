@@ -62,7 +62,7 @@ class App extends Component {
   }
 
   render() {
-    let headerText = "Temperature Conversion Grading Tool (Travis-Test)"
+    let headerText = "Temperature Conversion Grading Tool (Travis-Test-2)"
     let bodyText = "Enter values below to verify if a student's conversion is correct"
     return (
     <Container text className="body">

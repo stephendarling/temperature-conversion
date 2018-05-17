@@ -10,6 +10,8 @@ python:
 cache:
   - pip
   - yarn
+  directories:	
+    - node_modules
 install:
   # awscli is required to create CloudFront invalidation rule 
   - pip install --user awscli
