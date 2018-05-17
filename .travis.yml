@@ -9,7 +9,7 @@ python:
   - "3.5"
 install:
   # awscli is required to create CloudFront invalidation rule 
-  - pip install awscli
+  - pip install --user awscli
 cache:
   - pip
   directories:
