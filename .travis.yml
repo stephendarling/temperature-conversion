@@ -8,8 +8,6 @@ node_js:
 python:
   - "3.5"
 cache:
-  - pip
-  - yarn
   directories:	
     - node_modules
 install:
