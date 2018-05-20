@@ -78,15 +78,15 @@ For more information about Travis-CI see their getting started guide [here](http
 
 ## Reference
 ### Temperature Conversion Formulas
-```sh
+```
 # Convert to Kelvin
 C + 273.15 = K
-(F + 459.67) × 5/9 = K
+(F + 459.67) * 5/9 = K
 R * 5/9 = K
  
 # Convert from Kelvin
 C = K - 273.15
-F = K × 9/5 - 459.67
+F = K * 9/5 - 459.67
 R = K * 9/5
 ```
 [Sourced from [www.rapidtables.com](www.rapidtables.com)]
