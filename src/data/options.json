@@ -1,8 +1,0 @@
-[
-  { "key": 0, "value": "", "text": ""},
-  { "key": 1, "value": "c", "text": "Celsius"},
-  { "key": 2, "value": "f", "text": "Fahrenheit"},
-  { "key": 3, "value": "k", "text": "Kelvin"},
-  { "key": 4, "value": "r", "text": "Rankine"}
-]
-

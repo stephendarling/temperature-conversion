@@ -14,7 +14,7 @@ import ResponseMessage from './components/ResponseMessage'
 // Imports conversion function
 import performConversion from './functions/performConversion'
 // Imports options array from data directory
-var options = require('./data/options.json')
+var options = require('./data/conversionOptions')
 
 class App extends Component {
   // Sets initial state
