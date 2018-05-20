@@ -12,9 +12,9 @@ import {
 // Imports response message component
 import ResponseMessage from './components/ResponseMessage'
 // Imports conversion function
-import performConversion from './functions/performConversion'
+import convert from './functions/convert'
 // Imports options array from data directory
-var options = require('./data/conversionOptions')
+var conversionOptions = require('./data/conversionOptions')
 
 class App extends Component {
   // Sets initial state
@@ -53,7 +53,7 @@ class App extends Component {
       newState['response'] = ''
       this.setState(newState)
     } else {
-      let response = performConversion(this.state.startingValue, this.state.startingUnit, this.state.convertedValue, this.state.convertedUnit) 
+      let response = convert(this.state.startingValue, this.state.startingUnit, this.state.convertedValue, this.state.convertedUnit) 
       newState['response'] = response.status
       newState['calculation'] = response.calculation
       // Updates state with response from conversion and correct calculation
@@ -72,10 +72,10 @@ class App extends Component {
       <Form>
         <Form.Group widths='equal'>
           <Form.Field control={Input} onChange={this.handleInput.bind(this)} name="startingValue" label='Input Temperature' placeholder='Heat/Temperature' />
-          <Form.Field control={Dropdown} search selection onChange={this.handleSelect.bind(this)} name="startingUnit" label='Input Unit' options={options} placeholder='Unit' />
+          <Form.Field control={Dropdown} search selection onChange={this.handleSelect.bind(this)} name="startingUnit" label='Input Unit' options={conversionOptions} placeholder='Unit' />
         </Form.Group>
         <Form.Group widths='equal'>
-          <Form.Field control={Dropdown} search selection onChange={this.handleSelect.bind(this)} name="convertedUnit" label='Target Unit' options={options} placeholder='Unit' />
+          <Form.Field control={Dropdown} search selection onChange={this.handleSelect.bind(this)} name="convertedUnit" label='Target Unit' options={conversionOptions} placeholder='Unit' />
           <Form.Field control={Input} onChange={this.handleInput.bind(this)} name="convertedValue" label='Student Response' placeholder='Heat/Temperature' />
         </Form.Group>
       </Form>
