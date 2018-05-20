@@ -1,7 +1,6 @@
 # The configuration below configured Travis to run for CI/CD
 # Sudo required for install awscli and python
 sudo: required
-warnings_are_errors: false
 dist: trusty
 language: node_js
 node_js:
